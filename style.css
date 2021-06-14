@@ -1,0 +1,21 @@
+* {
+  margin: 0%;
+  padding: 0%;
+}
+.container {
+  height: 100vh;
+  width: 100%;
+  background-color: indianred;
+  position: relative;
+}
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  height: 300px;
+  width: 400px;
+  background-color: dodgerblue;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
