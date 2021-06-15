@@ -4,15 +4,46 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="style.css" />
     <title>Memory Game</title>
   </head>
   <body>
     <div class="container">
+      <!-- Heading -->
+      <h1 class="heading">Test Your Memory Here....!</h1>
+      <!-- Saving and Taking your name -->
+      <label id="nameHead" class="label" for="name"
+        >Enter Your Name Here...</label
+      >
+      <input class="label" id="name" type="text" />
+      <div class="btn label">Start Game..!</div>
+      <!-- Game-board -->
+      <div class="game-board">
+        <h3 class="text">
+          <span class="yourName"></span> , Your score is :
+          <span id="currentScore"></span>
+        </h3>
+        <h3 class="text">
+          <span class="yourName"></span>
+          , your Best Score is : <span id="bestScore"></span>
+        </h3>
 
-      <h3>Score: <span id="result"></span></h3>
-  
-      <div class="grid"></div>
+        <div class="grid">
+          <!-- images will be added here -->
+        </div>
+        <div class="instructions">
+          <ul>
+            <div class="main">Instructions for Game</div>
+            <li>Read the instructions Carefully ...!</li>
+            <li>This is a Memory Game</li>
+            <li>
+              There are total 6 food items hidden in the grid , each having a
+              pair of itself
+            </li>
+            <li>Find all pairs to Win the Game</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </body>
   <script src="app.js"></script>
