@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+  var instr = document.querySelector(".instructions");
+  var btn = document.querySelector(".btn");
+  var text = document.querySelector(".text");
+  btn.addEventListener("click", function () {
+    instr.style.display = "inline-block";
+  });
+
   //card options
   const cardArray = [
     {
@@ -59,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let cardsChosenId = [];
   let cardsWon = [];
 
-  //create your board 
+  //create your board
   function createBoard() {
     for (let i = 0; i < cardArray.length; i++) {
       const card = document.createElement("img");
@@ -96,6 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cardsChosenId = [];
     resultDisplay.textContent = cardsWon.length;
     if (cardsWon.length === cardArray.length / 2) {
+      text.style.display = "inline-block";
       resultDisplay.textContent = "Congratulations! You found them all!";
     }
   }
@@ -109,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (cardsChosen.length === 2) {
       setTimeout(checkForMatch, 100);
     }
-  } 
+  }
 
   createBoard();
 });
