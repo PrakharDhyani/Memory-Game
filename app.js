@@ -2,8 +2,38 @@ document.addEventListener("DOMContentLoaded", () => {
   var instr = document.querySelector(".instructions");
   var btn = document.querySelector(".btn");
   var text = document.querySelector(".text");
+  var count = 0;
+  var userName = document.getElementById("name");
+  var score = 0;
+  //checking if user name exist or not
+
+  if (localStorage.name !== undefined) {
+    localStorage.removeItem("clickcount");
+  }
+  // storing the user name in Local Storage
+  userName.onchange = function () {
+    userName = userName.value;
+    localStorage.setItem("name", userName);
+    localStorage.setItem("bestscore", score);
+    if (localStorage.name != undefined) {
+      document.getElementById("nameHead").innerHTML =
+        "Hi " + localStorage.name + " Welcome Back..! ";
+      document.getElementById("name").style.display = "none";
+    }
+    //storing best score in the localStorage
+    if (localStorage.bestscore !== undefined) {
+      document.getElementsByClassName("text").innerHTML =
+        "Your Best Score is " +
+        localStorage.bestscore +
+        " Play now to beat it ✌🤞😉😎  ";
+    }
+    // alert(localStorage.name);
+  };
+  //onclicking button instructions will apeared and start button will appeared
   btn.addEventListener("click", function () {
     instr.style.display = "inline-block";
+    btn.style.display = "none";
+    // localStorage.removeItem("name");
   });
 
   //card options
@@ -66,6 +96,10 @@ document.addEventListener("DOMContentLoaded", () => {
   let cardsChosenId = [];
   let cardsWon = [];
 
+  //counting no. of chances
+  grid.addEventListener("click", function () {
+    count++;
+  });
   //create your board
   function createBoard() {
     for (let i = 0; i < cardArray.length; i++) {
@@ -104,7 +138,8 @@ document.addEventListener("DOMContentLoaded", () => {
     resultDisplay.textContent = cardsWon.length;
     if (cardsWon.length === cardArray.length / 2) {
       text.style.display = "inline-block";
-      resultDisplay.textContent = "Congratulations! You found them all!";
+      // resultDisplay.textContent = "Congratulations! You found them all!";
+      alert("asfdsa");
     }
   }
 
@@ -120,4 +155,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   createBoard();
+  //Storing locally the names and best score
+  // As we already learned, the window object can be ommited for simplicity
 });
