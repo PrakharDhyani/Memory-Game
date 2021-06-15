@@ -5,8 +5,55 @@
 .container {
   height: 100vh;
   width: 100%;
-  background-color: indianred;
-  position: relative;
+  background-color: #111;
+  display: flex;
+  flex-direction: column;
+  /* overflow: hidden; */
+}
+h1 {
+  color: rgb(68, 68, 136);
+  text-align: center;
+}
+.label {
+  text-align: center;
+  display: inline-block;
+  width: 300px;
+  margin: auto;
+}
+#name {
+  margin-bottom: 40px;
+}
+#nameHead {
+  margin-top: 40px;
+  font-size: 25px;
+}
+.btn {
+  display: inline-block;
+  width: 120px;
+  height: 50px;
+  line-height: 40px;
+  font-size: large;
+  background-color: limegreen;
+  border: 2px solid rgb(0, 100, 0, 0.5);
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+.btn:hover {
+  background-color: rgb(0, 200, 0);
+  width: 150px;
+}
+.game-board {
+  padding-bottom: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #111;
+}
+.text {
+  display: none;
+  text-align: left;
 }
 .grid {
   display: flex;
@@ -14,8 +61,16 @@
   height: 300px;
   width: 400px;
   background-color: dodgerblue;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+}
+.instructions {
+  margin-top: 40px;
+  color: #fff;
+  font-size: medium;
+  color: silver;
+  display: none;
+}
+.main {
+  margin-left: 70px;
+  font-size: 40px;
+  color: coral;
 }
