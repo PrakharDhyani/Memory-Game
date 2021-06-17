@@ -1,31 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   var instr = document.querySelector(".instructions");
   var btn = document.querySelector(".btn");
-  var signOut = document.querySelector(".signOut");
+  var lwrbtn = document.querySelector("#lowerBtn");
   var text = document.querySelector(".text");
+  var grid = document.querySelector(".grid");
   var count = 0;
   var userName = document.getElementById("name");
-  var score = 0;
+  var bestScoreP = document.getElementById("bestscore");
+
+  var Score = 0;
+
   //checking if user name exist or not
   function Userexist() {
     if (localStorage.name) {
       document.getElementById("nameHead").innerHTML =
-      "Hi " + localStorage.name + " Welcome Back..! ";
+        "Hi " + localStorage.name + " Welcome Back..! ";
       document.getElementById("name").style.display = "none";
-      document.getElementById("not").innerHTML =
-      " Not " +
-      localStorage.name +
-      " Click Below to sign out ( Note : Your Best Score will got reset) ";
     }
   }
   //checking bestscore
   function bestScore() {
     if (localStorage.bestscore) {
       document.getElementsByClassName("text").innerHTML =
-      "Your Best Score is " +
-      localStorage.bestscore +
-      " Play now to beat it ✌🤞😉😎  ";
+        "Your Best Score is " +
+        localStorage.bestscore +
+        " Play now to beat it ✌🤞😉😎  ";
     }
   }
   Userexist();
@@ -36,36 +35,32 @@ document.addEventListener("DOMContentLoaded", () => {
     // alert(userName);
     //displaying signout button
     localStorage.setItem("name", userName);
-    localStorage.setItem("bestscore", score);
-    signOut.style.display = "inline-block";
 
     //checking if user name exist or not
     Userexist();
     //storing best score in the localStorage
     // bestscore();
-
   };
   //onclicking button instructions will apeared and start button will appeared
   btn.addEventListener("click", function () {
     instr.style.display = "inline-block";
+    lwrbtn.style.display = "inline-block";
     btn.style.display = "none";
     if (localStorage.name) {
       document.getElementById("nameHead").innerHTML =
         "Hi " + localStorage.name + " Welcome Back..! ";
       document.getElementById("name").style.display = "none";
-      document.getElementById("not").innerHTML =
-        " Not " +
-        localStorage.name +
-        " Click Below to sign out ( Note : Your Best Score will got reset) ";
     }
   });
-  //onclicking signout button
-  signOut.addEventListener("click", function () {
-    signOut.style.display = "none";
-    localStorage.removeItem("name");
-    document.getElementById("nameHead").innerHTML = "Hi User Welcome Back..! ";
-    document.getElementById("name").style.display = "inline-block";
-    document.getElementById("not").style.display = "none";
+  lwrbtn.addEventListener("click", function () {
+    lwrbtn.style.display = "none";
+    grid.style.display = "inline-block";
+
+    if (localStorage.name) {
+      document.getElementById("nameHead").innerHTML =
+        "Hi " + localStorage.name + " Welcome Back..! ";
+      document.getElementById("name").style.display = "none";
+    }
   });
 
   //card options
@@ -121,8 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   cardArray.sort(() => 0.5 - Math.random());
-
-  const grid = document.querySelector(".grid");
   const resultDisplay = document.querySelector(".text");
   let cardsChosen = [];
   let cardsChosenId = [];
@@ -167,10 +160,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     cardsChosen = [];
     cardsChosenId = [];
-    resultDisplay.textContent = cardsWon.length;
+
     if (cardsWon.length === cardArray.length / 2) {
       text.style.display = "inline-block";
+      if (
+        count < localStorage.bestscore ||
+        localStorage.bestscore === undefined
+      ) {
+        localStorage.setItem("bestscore", count);
+      }
       resultDisplay.textContent = "Congratulations! You found them all!";
+      bestScoreP.innerText = "Your Best Score is :" + localStorage.bestscore;
+      grid.style.display = "none";
+      instr.style.display = "none";
     }
   }
 
@@ -181,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cardsChosenId.push(cardId);
     this.setAttribute("src", cardArray[cardId].img);
     if (cardsChosen.length === 2) {
-      setTimeout(checkForMatch, 100);
+      setTimeout(checkForMatch, 200);
     }
   }
 
