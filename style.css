@@ -22,16 +22,13 @@ h1 {
 #name {
   margin-top: 20px;
 }
-#nameHead,
-#not {
+#nameHead ,#bestscore{
   color: aqua;
   margin-top: 40px;
   font-size: 30px;
   width: fit-content;
 }
-#not {
-  display: inline-block;
-}
+
 .btn {
   margin-top: 40px;
   width: 120px;
@@ -42,21 +39,6 @@ h1 {
   border: 2px solid rgb(0, 100, 0, 0.5);
   cursor: pointer;
   display: inline-block;
-}
-.signOut {
-  margin: auto;
-  margin-top: 20px;
-  text-align: center;
-  display: none;
-   margin-top: 40px;
-  width: 120px;
-  height: 50px;
-  line-height: 40px;
-  font-size: large;
-  background-color: limegreen;
-  border: 2px solid rgb(0, 100, 0, 0.5);
-  cursor: pointer;
- 
 }
 .btn:hover {
   background-color: rgb(0, 200, 0);
@@ -83,6 +65,7 @@ h1 {
   height: 300px;
   width: 400px;
   background-color: dodgerblue;
+  display: none;
 }
 .instructions {
   margin-top: 40px;
@@ -99,4 +82,7 @@ h1 {
 li {
   margin-top: 5px;
   font-size: 20px;
+}
+#lowerBtn {
+  display: none;
 }
