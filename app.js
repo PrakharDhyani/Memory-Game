@@ -121,10 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let cardsChosenId = [];
   let cardsWon = [];
 
-  //counting no. of chances
-  grid.addEventListener("click", function () {
-    count++;
-  });
   //create your board
   function createBoard() {
     for (let i = 0; i < cardArray.length; i++) {
@@ -178,6 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //flip your card
   function flipCard() {
+    count++;
     let cardId = this.getAttribute("data-id");
     cardsChosen.push(cardArray[cardId].name);
     cardsChosenId.push(cardId);
