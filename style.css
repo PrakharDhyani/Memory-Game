@@ -14,24 +14,26 @@ h1 {
   text-align: center;
   font-size: 50px;
 }
-.label {
+.label,
+#not {
   text-align: center;
-  display: inline-block;
-  width: 300px;
   margin: auto;
 }
 #name {
   margin-top: 20px;
 }
-#nameHead {
+#nameHead,
+#not {
   color: aqua;
   margin-top: 40px;
   font-size: 30px;
   width: fit-content;
 }
+#not {
+  display: inline-block;
+}
 .btn {
   margin-top: 40px;
-  display: inline-block;
   width: 120px;
   height: 50px;
   line-height: 40px;
@@ -39,6 +41,22 @@ h1 {
   background-color: limegreen;
   border: 2px solid rgb(0, 100, 0, 0.5);
   cursor: pointer;
+  display: inline-block;
+}
+.signOut {
+  margin: auto;
+  margin-top: 20px;
+  text-align: center;
+  display: none;
+   margin-top: 40px;
+  width: 120px;
+  height: 50px;
+  line-height: 40px;
+  font-size: large;
+  background-color: limegreen;
+  border: 2px solid rgb(0, 100, 0, 0.5);
+  cursor: pointer;
+ 
 }
 .btn:hover {
   background-color: rgb(0, 200, 0);
@@ -55,6 +73,7 @@ h1 {
 }
 .text {
   display: none;
+  margin-top: 20px;
   text-align: left;
 }
 .grid {
